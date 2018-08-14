@@ -1,0 +1,8 @@
+.result, .fortune{
+  display: none;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+};

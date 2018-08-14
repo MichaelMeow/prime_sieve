@@ -9,28 +9,41 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css"></link>
   </head>
   <body>
-    <form action="index.html" method="post" id="form">
-      <label for="count-to">Number to Count To</label>
-      <input type="number" name="count-to" value="" id="count-to">
-      <label for="count-by">Number to Count By</label>
-      <input type="number" id="count-by" value="" name="count-by">
-      <button type="submit" name="button" id="submit">Submit</button>
-    </form>
+    <div class="container">
+      <h1>What is Your Stress Fortune?</h1>
+      <h3>Find out below! Check all that apply.</h3>
 
+      <form class="" action="index.html" method="post" id="stress-survey">
+        <h3>Have you in the last month...</h3>
+        <input type="checkbox" name="question1" value="sleep deprived">slept fewer than 5 hours in a night<br>
+        <input type="checkbox" name="question1" value="drunk">drunk more than 3 alcoholic beverages in a night<br>
+        <input type="checkbox" name="question1" value="nail-biting">bitten your fingernails<br>
+        <input type="checkbox" name="question1" value="sickly">been ill<br>
+        <input type="checkbox" name="question1" value="weak">felt overwhelmed<br>
+        <button type="submit" name="button">SUBMIT</button>
+      </form>
+      <div class="result">
+        <h3>You are a <span id="stress-result"></span> stressed mess. Let Zoltar guide you.</h3>
+        <form class="second" action="index.html" method="post" id="luck-survey">
+          <h3>Have you in the last month...</h3>
+          <input type="checkbox" name="question2" value="dreamy">had a dream come true the next morning<br>
+          <input type="checkbox" name="question2" value="magical">drunk unicorn blood<br>
+          <input type="checkbox" name="question2" value="golden">bitten a gold coin<br>
+          <input type="checkbox" name="question2" value="lazy">gotten a day off work<br>
+          <input type="checkbox" name="question2" value="lucky">felt lucky<br>
+          <button type="submit" name="button-two">SUBMIT</button>
+          <br>
 
-    <form class="puzzle" action="index.html" method="post" id="messageForm">
+        <div class="fortune">
+          <img src="img/maxresdefault.jpg" alt="Zoltar">
 
-      <label for="message">Message</label>
-      <input type="text" name="count-to" value="" id="message">
-
-      <button type="submit" name="button" id="messageSubmit">Submit</button>
-
-    </form>
-
-
-
-    <div class="output">
-      <h1></h1>
+          <h3>Your Fortune:</h3>
+          <h3>One, two, three, your <span id="luckWord"></span> day will be: <span id="month"></span>/<span id="day"></span> </h3>
+        </div>
+      </div>
     </div>
+
+
+
+
   </body>
-  </html>

@@ -1,45 +1,48 @@
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-var vowels = "aeiou"
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
 
-
-
+  return array;
+}
 
 $(document).ready(function(){
-  $("#form").submit(function(event){
+  $("#stress-survey").submit(function(event){
     event.preventDefault();
 
-    var countTo = Math.abs(parseInt($("form #count-to").val()));
-    var countBy = Math.abs(parseInt($("form #count-by").val()));
 
-    if(countTo === "NaN" || countBy === "NaN" || countBy > countTo){
-      alert("Please enter a number!")
-
-    } else {
-      for(i=countBy; i <= countTo; i += countBy){
-        console.log(i);
-      };
-    };
-  });
-
-  $("#messageForm").submit(function(event){
-    event.preventDefault();
-
-    var messageArray = $("form #message").val().split("");
-
-
-
-    var scrambled = messageArray.map(function(letter){
-
-      if (vowels.includes(letter)){
-        return "-"
-        console.log("includes");
-      } else {
-        return letter
-    }
+    var stressList;
+    $("input:checkbox[name=question1]:checked").each(function(){
+      stressList = $(this).val();
+      $("#stress-result").append(stressList + ", ");
     });
-    console.log(scrambled.join(""));
-    console.log(messageArray);
+    $(".result").show();
+  });
+  $("#luck-survey").submit(function(event){
+    event.preventDefault();
+
+
+    var luckWords = [];
+    $("input:checkbox[name=question2]:checked").each(function(){
+      luckWords.push($(this).val());
+    });
+    shuffle(luckWords);
+    $("#luckWord").append(luckWords[0]);
+
+    $("#month").append(Math.floor((Math.random() * 12) + 1));
+    $("#day").append(Math.floor((Math.random() * 30) + 1));
+
+    $(".fortune").show();
   });
 });
