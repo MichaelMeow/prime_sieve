@@ -1,3 +1,11 @@
+
+var vowels = "aeiou"
+
+
+
+
+
+
 $(document).ready(function(){
   $("#form").submit(function(event){
     event.preventDefault();
@@ -13,5 +21,25 @@ $(document).ready(function(){
         console.log(i);
       };
     };
+  });
+
+  $("#messageForm").submit(function(event){
+    event.preventDefault();
+
+    var messageArray = $("form #message").val().split("");
+
+
+
+    var scrambled = messageArray.map(function(letter){
+
+      if (vowels.includes(letter)){
+        return "-"
+        console.log("includes");
+      } else {
+        return letter
+    }
+    });
+    console.log(scrambled.join(""));
+    console.log(messageArray);
   });
 });
